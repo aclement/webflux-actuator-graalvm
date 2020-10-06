@@ -82,6 +82,9 @@ Startup is < 100ms.
 # Testing it out
 
 ```
+curl http://localhost:8080
+Yo!
+
 curl http://localhost:8080/actuator/health
 {"groups":["liveness","readiness"],"status":"UP"}
 
