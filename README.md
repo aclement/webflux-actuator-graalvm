@@ -24,13 +24,19 @@ To build the application there are options:
 mvn -Pnative clean package
 ```
 
-
 ## Build with Spring container image support using buildpacks
 
+```
+mvn spring-boot:build-image
+```
 
 # Launching the app
 
-If building without contianer image support the executable is in the target folder.
+If building without container image support the executable is in the target folder:
+
+```
+./target/webflux-actuator-graalvm
+```
 
 If building as a container image the `docker-compose.yml` can be used to launch it:
 
