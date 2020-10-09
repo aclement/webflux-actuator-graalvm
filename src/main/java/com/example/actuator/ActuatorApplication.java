@@ -27,9 +27,7 @@ public class ActuatorApplication {
 
 	@Bean
 	ApplicationListener<ApplicationReadyEvent> ready(ReservationRepository rr) {
-		return event -> {
-			rr.findAll().subscribe(System.out::println);
-		};
+		return event -> rr.findAll().subscribe(System.out::println);
 	}
 }
 
