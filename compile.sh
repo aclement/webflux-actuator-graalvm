@@ -29,9 +29,15 @@ echo "Compiling $ARTIFACT with $GRAALVM_VERSION"
   --verbose \
   -H:Name=$ARTIFACT \
   -Dspring.spel.ignore=true \
+  -Dspring.native.factories.no-actuator-metrics=true \
+  -Dspring.native.build-time-properties-checks=default-include-all \
   -Dspring.native.remove-yaml-support=true \
   -cp $CP $MAINCLASS >> output.txt ; } 2>> output.txt
 
+
+#  -Dspring.native.build-time-properties-match-if-missing=false \
+#  -Dspring.native.build-time-properties-checks=default-include-all \
+# -Dspring.native.ignore-types=io.micrometer.core. \
 #  -Dspring.native.verbose=true \
 if [[ -f $ARTIFACT ]]
 then

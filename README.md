@@ -97,3 +97,23 @@ curl localhost:8080/actuator/health/liveness
 curl -X POST http://localhost:8080/actuator/shutdown
 {"message":"Shutting down, bye..."}
 ```
+
+## Setup the database
+
+```
+docker-compose up db
+```
+
+```
+docker exec -it my_postgres psql -U postgres
+
+postgres=# create user reservations;
+CREATE ROLE
+postgres=# alter user orders with encrypted password 'reservations';
+ALTER ROLE
+postgres=# create database reservations;
+CREATE DATABASE
+postgres=# grant all privileges on database reservations to reservations;
+GRANT
+postgres=# exit
+```

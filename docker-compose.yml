@@ -4,3 +4,15 @@ services:
     image: webflux-actuator-graalvm:0.0.1-SNAPSHOT
     ports:
       - "8080:8080"
+  db:
+    image: "postgres:11"
+    container_name: "my_postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+    environment:
+        POSTGRES_USER: orders
+        POSTGRES_PASSWORD: orders
+volumes:
+  my_dbdata:
